@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1Block</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- fonts family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,500;1,700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+        <main>
+            <div class="heading">
+                <h1>
+                    <span>Alaska</span>
+                    <span>Alex</span>
+                </h1>
+            </div>
+
+            <div class="subtext">
+                <h6>I frontend developer - I love frontend- I love web</h6>
+                <h6>I frontend developer - I love frontend- I love web</h6>
+            </div>
+            
+            <img src="./avatar972195361__6_-removebg-preview (3).png" alt="" class="portret">
+        </main>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+        crossorigin="anonymous" referrerpolicy="
+        no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+        integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script>
+          $(document).ready(function(){
+            $(".heading h1 span, .subtext h6").html(function(index,html){
+                return html.replace(/\S/g, '<span>$&</span>');
+            });
+
+            var tl = anime.timeline({
+                duration:3000,
+            });
+            tl
+            .add({
+                targets: '.portret',
+                translateY: [500, 0],
+                scale:[1.2,1],
+                easing:'easeInOutQuart'
+            })
+
+            .add({
+                targets: '.heading h1 span',
+                translateY: [50, 0],
+                scale:[0,1],
+                opacity:[0,1],
+                delay:anime.stagger(100),
+                easing:'easeInOutQuart'
+            }, '-=2000')
+            .add({
+                targets: '.subtext h6 span',
+                translateY: [100, 0],
+                opacity:[0,1],
+                delay:anime.stagger(10),
+                easing:'easeInOutQuint'
+            }, '-=2000')
+            
+          });
+        </script>
+</body>
+
+</html>
